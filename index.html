@@ -1,24 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romantic Love Webpage</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f8f8f8; text-align: center; padding: 50px; }
-        h1 { color: #ff3366; }
-        p { font-size: 20px; color: #333; }
-        a { color: #ff3366; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romanela ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff4e8a,#ff9ecf);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.container{
+    padding:25px;
+}
+
+h1{
+    font-size:45px;
+    margin-top:20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.sub{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:19px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4e8a;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:15px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff4e8a;
+    color:white;
+}
+
+.gallery{
+    margin-top:50px;
+}
+
+.gallery img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:15px;
+    margin:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.15) rotate(3deg);
+}
+
+.carta{
+    margin-top:30px;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    opacity:0;
+    transition:1s;
+}
+
+.mostrar{
+    opacity:1;
+}
+
+.heart{
+    position:fixed;
+    color:white;
+    animation: float 5s linear infinite;
+    font-size:20px;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);}
+    100%{transform:translateY(-10vh);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to the World of Love</h1>
-    <p>Love is not about possession. Love is about appreciation.</p>
-    <p>"Where there is love, there is life." - Mahatma Gandhi</p>
-    <p>Let’s celebrate love every day!</p>
-    <footer>
-        <p>Created with ❤️ by joaquinpetrovsky15-jpg</p>
-    </footer>
+
+<!-- 🎵 Música -->
+<audio autoplay loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+    <h1>Feliz aniversario mi amor ❤️</h1>
+    <div class="sub">21 meses juntos!! 💞</div>
+
+    <p>Romanela, desde el 02/05/24 que te di mi primer beso 💋</p>
+    <p>Nuestro día siempre es el 15 ✨</p>
+    <p>Fecha especial: 15/05/24 💖</p>
+
+    <h2 id="contador"></h2>
+
+    <button onclick="mostrarCarta()">Leer mi carta 💌</button>
+
+    <div class="carta" id="carta">
+        <p>
+        Gracias por estos 21 meses hermosos.  
+        Sos mi lugar seguro, mi paz cuando todo está mal,  
+        mi sonrisa diaria y la persona con la que quiero compartir cada 15.  
+        Desde ese 02/05/24 cambió todo para mí.  
+        Te elegiría una y mil veces más.  
+        Te amo infinito Romanela ❤️
+        </p>
+    </div>
+
+    <button onclick="explosion()">Te amo infinito 💘</button>
+
+    <!-- 📸 FOTOS ABAJO -->
+    <div class="gallery">
+        <h2>Nuestras fotos 📸</h2>
+        <img src="foto1.jpg">
+        <img src="foto2.jpg">
+        <img src="foto3.jpg">
+    </div>
+
+</div>
+
+<script>
+
+// Contador automático
+const inicio = new Date("2024-05-02");
+const hoy = new Date();
+const diferencia = hoy - inicio;
+const dias = Math.floor(diferencia / (1000*60*60*24));
+document.getElementById("contador").innerHTML =
+"Llevamos " + dias + " días juntos 💖";
+
+// Mostrar carta
+function mostrarCarta(){
+    document.getElementById("carta").classList.add("mostrar");
+}
+
+// Corazones flotando
+function crearCorazon(){
+    const corazon = document.createElement("div");
+    corazon.classList.add("heart");
+    corazon.style.left = Math.random()*100 + "vw";
+    corazon.innerHTML = "❤";
+    document.body.appendChild(corazon);
+    setTimeout(()=>{corazon.remove()},5000);
+}
+setInterval(crearCorazon,400);
+
+// Explosión de corazones
+function explosion(){
+    for(let i=0;i<30;i++){
+        crearCorazon();
+    }
+}
+
+</script>
+
 </body>
 </html>
